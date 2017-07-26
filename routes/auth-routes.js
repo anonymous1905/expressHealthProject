@@ -31,8 +31,10 @@ router.post('/signup', (req, res, next) => {
          res.status(400).json({ message: 'Email already exists'});
          return;
        }
+       console.log(req.body.signupPassword);
        const salt = bcrypt.genSaltSync(10);
        const scrambledPassword = bcrypt.hashSync(req.body.signupPassword, salt);
+       console.log(salt);
 
        const theUser = new UserModel ({
          fullName: req.body.signupFullName,
@@ -41,11 +43,9 @@ router.post('/signup', (req, res, next) => {
          encryptedPassword: scrambledPassword
        });
 
-       console.log('ADD STRINGS ANTHONY FUCK' + req.body.signupFullName);
+       
 
-console.log(theUser.fullName);
-console.log(theUser.email);
-console.log(theUser.username);
+
 
 
 
@@ -53,6 +53,7 @@ console.log(theUser.username);
 
          if(err) {
          res.status(500).json({message: "User save went to 💩"});
+
          return;
        }
 

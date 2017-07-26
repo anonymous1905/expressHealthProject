@@ -14,8 +14,7 @@ const myUserSchema = new Schema (
       required: true
     },
     username: {
-      type: String,
-      required: true
+      type: String
     },
     encryptedPassword: {
       type: String,
