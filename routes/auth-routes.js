@@ -12,7 +12,6 @@ const router = express.Router();
 router.post('/signup', (req, res, next) => {
 
 
-
   if (!req.body.signupEmail || !req.body.signupPassword) {
     res.status(400).json({ message: "Need both email and Password 💩"});
     return;
@@ -43,7 +42,7 @@ router.post('/signup', (req, res, next) => {
          encryptedPassword: scrambledPassword
        });
 
-       
+
 
 
 
